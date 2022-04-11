@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "About";
+}
+
+<h2>About</h2>
+@*
+
+Razor Helperlariniz tıpkı normal HTML tagleri gibi render edilir ancak kullanmanız daha saglıklıdır cünkü normal HTMl taglerine göre daha performanslıdırlar....
+
+    Her HTML tag'inin Helper'i yoktur...Ancak isterseniz kendi Helper'larınızı yaratabilirsiniz...
+    
+*@
+
+@Html.ActionLink("Index'e git","Index",null,new { @class = "btn btn-warning" })
+
+
+
+
+@Html.TextBox("txtIsim", null, new {placeholder="Lutfen isminizi giriniz"})
+
+
+<a href="/Helper/Index"  class="btn btn-warning" style="" >
+
+    Index'e git
+</a>
+
+
