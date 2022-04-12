@@ -1,0 +1,32 @@
+﻿@model Product
+
+@{
+    ViewBag.Title = "RazorHelper";
+}
+
+
+@*
+
+    Razor View görüntüleme motorunuz, sizin normal şartlarda pure olarak actıgınız HTML taglerinden önemli olan en sık kullanılanları HTMLHelpers dedigimiz yapılarda render eder...HTMLHelpers, C# ile yazdıgınız  ve Razor View görüntüleme motoru sayesinde browserdan acıldıgı zaman otomatik olarak Pure HTML'e render edilebilecek metotlardır...
+
+        Bu helperlarda for takısı ile bitenler otomatik olarak ilgili taglere yazılan yapıların modele bind edilmesini saglar... Buna model binding denir... (Yani ilgili tag'e yazılan degerin otomatik olarak modele bind olması)
+
+*@
+
+@using (Html.BeginForm("RazorHelper", "Home", FormMethod.Post))
+{
+
+    @Html.TextBoxFor(x => x.ID, new { placeholder = "ID giriniz" })
+    <br />
+
+    @Html.TextBoxFor(x => x.ProductName, new { placeholder = "İsim giriniz" })
+    <br />
+
+    @Html.TextBoxFor(x => x.UnitPrice, new { placeholder = "Fiyat giriniz" })
+    <br />
+
+    //Bir formun icerisinde button tag'iyle acılmıs bir button varsa siz bir şey yapmadan o kendisi ilgili formu post edecegini bilir... Eger input ile button acılmıssa post işlemini yapabilmesi icin tipinin submit olması gereklidir...
+
+    <button>Ekle</button>
+
+}

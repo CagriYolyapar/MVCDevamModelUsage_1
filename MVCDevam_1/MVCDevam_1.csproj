@@ -163,6 +163,9 @@
     <Content Include="Views\Helper\Index.cshtml" />
     <Content Include="Views\Helper\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\BringByID.cshtml" />
+    <Content Include="Views\Home\Bring.cshtml" />
+    <Content Include="Views\Home\RazorHelper.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

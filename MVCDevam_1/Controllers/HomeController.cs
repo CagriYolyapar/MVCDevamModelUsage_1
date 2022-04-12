@@ -62,5 +62,92 @@ namespace MVCDevam_1.Controllers
 
             return View(urunler);
         }
+
+        public ActionResult BringByID(int id)
+        {
+            List<Product> urunler = new List<Product>
+            {
+                new Product
+                {
+                    ID = 1,
+                    ProductName = "Tadelle",
+                    UnitPrice = 12.3M
+                },
+
+                new Product
+                {
+                    ID = 2,
+                    ProductName = "Cizi",
+                    UnitPrice = 13.4M
+                }
+            };
+
+            Product yakalanan = urunler.FirstOrDefault(x => x.ID == id);
+
+            return View(yakalanan);
+        }
+
+
+        public ActionResult Bring(int? identity)
+        {
+            List<Product> urunler = new List<Product>()
+            {
+                new Product
+                {
+                    ID = 1,
+                    ProductName = "Tadelle",
+                    UnitPrice = 12.3M
+                },
+                 new Product
+                {
+                    ID = 2,
+                    ProductName = "Cizi",
+                    UnitPrice = 11.2M
+                },
+                new Product
+                {
+                    ID = 3,
+                    ProductName = "Biskrem",
+                    UnitPrice = 12.3M
+                },
+                new Product
+                {
+                    ID = 4,
+                    ProductName = "Jelibon",
+                    UnitPrice = 12.3M
+                },
+                new Product
+                {
+                    ID = 5,
+                    ProductName = "Tutku",
+                    UnitPrice = 12.3M
+                },
+
+            };
+
+            List<Product> gonderilecekModel = identity == null || identity > 5 ? urunler : urunler.Where(x => x.ID == identity).ToList();
+
+
+            return View(gonderilecekModel);
+        }
+
+
+
+        public ActionResult RazorHelper()
+        {
+            //Eger bir Action, View'a model göndermiyorsa;ancak buna rağmen View'imiz sanki bir model karsılarmıs gibi @model keyword'u ile bir model set etmişsse bu demektir ki bir post request'inde bu View bir Post Action'ına veri gönderiyor...
+
+
+            return View();
+        }
+        
+        //Post edilen her veri istisnasız View'da bir Form tag'inin icerisinde bulunmalıdır...
+
+        [HttpPost] //Takip eden Action Post request'ine hizmet edecek...
+        public ActionResult RazorHelper(Product item) //Bir View'dan gönderilen Model uygun sartlarda buradaki parametreye argüman olarak gelir...
+        {
+            return View();
+        }
+
     }
 }

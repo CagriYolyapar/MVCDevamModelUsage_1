@@ -1,0 +1,21 @@
+﻿@model Product
+
+@{
+    ViewBag.Title = "BringByID";
+}
+
+
+
+    @if(Model != null)
+            {
+<p>  @Model.ID  ,   @Model.ProductName  ,   @Model.UnitPrice    </p>    
+            }
+            else
+            {
+                <p>Model bulunamadı</p>
+            }
+ 
+
+
+
+
